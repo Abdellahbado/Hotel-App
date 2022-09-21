@@ -3,6 +3,7 @@ import 'package:firebase_test18/auth/login.dart';
 import 'package:firebase_test18/firebase_options.dart';
 import 'package:firebase_test18/home.dart';
 import 'package:firebase_test18/screens/home_screen.dart';
+import 'package:firebase_test18/screens/hotel_home.dart';
 import 'package:firebase_test18/screens/info_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -21,7 +22,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      home: HomePage(),
+      home: HomeScreen(),
     );
   }
 }
