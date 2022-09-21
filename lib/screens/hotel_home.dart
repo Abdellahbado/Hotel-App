@@ -16,7 +16,10 @@ class _HomeScreenState extends State<HomeScreen> {
         title: Text('Hotel App'),
         elevation: 0.0,
         actions: [
-          IconButton(icon: Icon(Icons.menu)),
+          IconButton(
+            icon: Icon(Icons.menu),
+            onPressed: () {},
+          ),
         ],
       ),
     );
