@@ -2,6 +2,8 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_test18/auth/login.dart';
 import 'package:firebase_test18/firebase_options.dart';
 import 'package:firebase_test18/home.dart';
+import 'package:firebase_test18/screens/home_screen.dart';
+import 'package:firebase_test18/screens/info_screen.dart';
 import 'package:flutter/material.dart';
 
 Future<void> main() async {
@@ -18,8 +20,8 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: HomeP(),
+    return const MaterialApp(
+      home: HomePage(),
     );
   }
 }
