@@ -1,3 +1,5 @@
+import 'package:firebase_test18/screens/home_screen.dart';
+import 'package:firebase_test18/screens/home_screen0.dart';
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 
@@ -9,40 +11,33 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  int selectedIndex = 0;
+  final bottomNavBarScreens = [
+    HomePage(),
+    const Text(
+      'Search Page',
+      style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+    ),
+    ReservPage(),
+    const Text(
+      'Personal Page',
+      style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+    ),
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey.shade300,
-      appBar: AppBar(
-        backgroundColor: Colors.grey.shade300,
-        title: const Text('Hotel App'),
-        elevation: 0.0,
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.add),
-            onPressed: () {},
-          ),
-        ],
-      ),
-      body: ListView(
-        children: <Widget>[
-          const Padding(
-            padding: const EdgeInsets.all(10.0),
-            child: const Text(
-              'Popular Rooms',
-              style: const TextStyle(
-                fontSize: 18.0,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-          ),
-        ],
-      ),
+      body: Center(child: bottomNavBarScreens.elementAt(selectedIndex)),
       bottomNavigationBar: Container(
         color: Colors.grey.shade300,
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 20.0),
+          padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
           child: GNav(
+              selectedIndex: selectedIndex,
+              onTabChange: (value) => setState(() {
+                    selectedIndex = value;
+                  }),
               gap: 8,
               backgroundColor: Colors.grey.shade300,
               tabBackgroundColor: Colors.grey.shade600,
@@ -61,7 +56,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
                 GButton(
                   icon: Icons.person,
-                  text: 'Personal Information',
+                  text: 'Personal',
                 ),
               ]),
         ),

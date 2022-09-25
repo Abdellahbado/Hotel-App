@@ -1,14 +1,14 @@
 import 'package:firebase_test18/screens/info_screen.dart';
 import 'package:flutter/material.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+class ReservPage extends StatefulWidget {
+  const ReservPage({super.key});
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<ReservPage> createState() => _ReservPageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _ReservPageState extends State<ReservPage> {
   bool isAdded = false;
   void toggle() {
     setState(() {
@@ -23,14 +23,17 @@ class _HomePageState extends State<HomePage> {
     } else {
       return Scaffold(
         appBar: AppBar(elevation: 0.0),
-        body: const Center(
-          child: Text(
-            'you\'ve been added successfully',
-            style: TextStyle(
-              fontSize: 30.0,
-            ),
-          ),
-        ),
+        body: AlertDialog(
+        content: const Text('Reservation added successfully'),
+        actions: <TextButton>[
+          TextButton(
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            child: const Text('Close'),
+          )
+        ],
+      ),
       );
     }
     ;
